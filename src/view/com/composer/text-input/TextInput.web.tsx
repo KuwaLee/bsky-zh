@@ -41,21 +41,25 @@ interface TextInputProps {
   richtext: RichText
   placeholder: string
   suggestedLinks: Set<string>
+  webForceMinHeight: boolean
   setRichText: (v: RichText | ((v: RichText) => RichText)) => void
   onPhotoPasted: (uri: string) => void
   onPressPublish: (richtext: RichText) => void
   onNewLink: (uri: string) => void
   onError: (err: string) => void
+  onFocus: () => void
 }
 
 export const TextInput = React.forwardRef(function TextInputImpl(
   {
     richtext,
     placeholder,
+    webForceMinHeight,
     setRichText,
     onPhotoPasted,
     onPressPublish,
     onNewLink,
+    onFocus,
   }: // onError, TODO
   TextInputProps,
   ref,
@@ -147,6 +151,9 @@ export const TextInput = React.forwardRef(function TextInputImpl(
   const editor = useEditor(
     {
       extensions,
+      onFocus() {
+        onFocus?.()
+      },
       editorProps: {
         attributes: {
           class: modeClass,
@@ -242,8 +249,12 @@ export const TextInput = React.forwardRef(function TextInputImpl(
   }, [onEmojiInserted])
 
   React.useImperativeHandle(ref, () => ({
-    focus: () => {}, // TODO
-    blur: () => {}, // TODO
+    focus: () => {
+      editor?.chain().focus()
+    },
+    blur: () => {
+      editor?.chain().blur()
+    },
     getCursorPosition: () => {
       const pos = editor?.state.selection.$anchor.pos
       return pos ? editor?.view.coordsAtPos(pos) : undefined
@@ -270,6 +281,13 @@ export const TextInput = React.forwardRef(function TextInputImpl(
       : undefined
     return style
   }, [t, fonts])
+
+  React.useLayoutEffect(() => {
+    let node = editor?.view.dom
+    if (node) {
+      node.style.minHeight = webForceMinHeight ? '140px' : ''
+    }
+  }, [editor, webForceMinHeight])
 
   return (
     <>

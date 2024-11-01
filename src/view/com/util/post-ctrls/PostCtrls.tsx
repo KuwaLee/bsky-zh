@@ -119,7 +119,7 @@ let PostCtrls = ({
     try {
       setIsToggleLikeIcon(true)
       if (!post.viewer?.like) {
-        playHaptic()
+        playHaptic('Light')
         sendInteraction({
           item: post.uri,
           event: 'app.bsky.feed.defs#interactionLike',
@@ -250,6 +250,7 @@ let PostCtrls = ({
           style={btnStyle}
           onPress={() => {
             if (!post.viewer?.replyDisabled) {
+              playHaptic('Light')
               requireAuth(() => onPressReply())
             }
           }}
