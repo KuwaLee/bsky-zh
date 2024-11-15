@@ -8,7 +8,7 @@ msgstr ""
 "Language: zh\n"
 "Project-Id-Version: bluesky-zh\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-11-15 16:37\n"
+"PO-Revision-Date: 2024-11-16 02:02+0800\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Traditional\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -20,7 +20,7 @@ msgstr ""
 
 #: src/screens/Messages/components/ChatListItem.tsx:130
 msgid "(contains embedded content)"
-msgstr "（含有嵌入內容）"
+msgstr "（含有嵌入內容）test"
 
 #: src/screens/Settings/AccountSettings.tsx:58
 #: src/view/com/modals/VerifyEmail.tsx:150
