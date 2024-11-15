@@ -8,7 +8,7 @@ msgstr ""
 "Language: zh\n"
 "Project-Id-Version: bluesky-zh\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2024-11-15 16:37\n"
+"PO-Revision-Date: 2024-11-16 00:54+0800\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Traditional\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
@@ -17,10 +17,6 @@ msgstr ""
 "X-Crowdin-Language: zh-TW\n"
 "X-Crowdin-File: /main/src/locale/locales/en/messages.po\n"
 "X-Crowdin-File-ID: 238\n"
-
-#: src/screens/Messages/components/ChatListItem.tsx:130
-msgid "(contains embedded content)"
-msgstr "（含有嵌入內容）"
 
 #: src/screens/Settings/AccountSettings.tsx:58
 #: src/view/com/modals/VerifyEmail.tsx:150
@@ -8036,4 +8032,3 @@ msgstr "您的檢舉將傳送至 Bluesky 內容管理服務"
 #: src/screens/Signup/index.tsx:142
 msgid "Your user handle"
 msgstr "您的帳號代碼"
-
